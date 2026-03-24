@@ -1,0 +1,190 @@
+/* 🎨 万家系统 UI 样式变量定义 */
+
+/* ===== 颜色系统 ===== */
+:root {
+  /* 品牌主色 */
+  --wj-primary-color: #409eff;
+  --wj-primary-hover: #66b1ff;
+  --wj-primary-active: #3a8ee6;
+  --wj-primary-light: #ecf5ff;
+
+  /* 功能色 */
+  --wj-success-color: #67c23a;
+  --wj-success-hover: #85ce61;
+  --wj-success-light: #f0f9ff;
+
+  --wj-warning-color: #e6a23c;
+  --wj-warning-hover: #ebb563;
+  --wj-warning-light: #fdf6ec;
+
+  --wj-danger-color: #f56c6c;
+  --wj-danger-hover: #f78989;
+  --wj-danger-light: #fef0f0;
+
+  --wj-info-color: #909399;
+  --wj-info-hover: #a6a9ad;
+  --wj-info-light: #f4f4f5;
+
+  /* 中性色 */
+  --wj-text-primary: #303133;
+  --wj-text-regular: #606266;
+  --wj-text-secondary: #909399;
+  --wj-text-placeholder: #c0c4cc;
+
+  --wj-border-base: #dcdfe6;
+  --wj-border-light: #e4e7ed;
+  --wj-border-lighter: #ebeef5;
+  --wj-border-extra-light: #f2f6fc;
+
+  --wj-background-base: #f5f7fa;
+  --wj-background-white: #ffffff;
+  --wj-background-page: #f0f2f5;
+
+  /* 图表配色 */
+  --wj-chart-1: #5470c6;
+  --wj-chart-2: #91cc75;
+  --wj-chart-3: #fac858;
+  --wj-chart-4: #ee6666;
+  --wj-chart-5: #73c0de;
+}
+
+/* ===== 字体系统 ===== */
+:root {
+  --wj-font-family:
+    "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+
+  --wj-font-size-extra-large: 20px;
+  --wj-font-size-large: 18px;
+  --wj-font-size-medium: 16px;
+  --wj-font-size-base: 14px;
+  --wj-font-size-small: 13px;
+  --wj-font-size-mini: 12px;
+
+  --wj-font-weight-primary: 500;
+  --wj-font-weight-medium: 500;
+  --wj-font-weight-bold: 600;
+
+  --wj-line-height-primary: 1.5;
+  --wj-line-height-medium: 1.4;
+  --wj-line-height-small: 1.3;
+}
+
+/* ===== 间距系统 ===== */
+:root {
+  --wj-spacing-xs: 4px;
+  --wj-spacing-sm: 8px;
+  --wj-spacing-md: 16px;
+  --wj-spacing-lg: 24px;
+  --wj-spacing-xl: 32px;
+  --wj-spacing-2xl: 48px;
+}
+
+/* ===== 圆角系统 ===== */
+:root {
+  --wj-border-radius-small: 4px;
+  --wj-border-radius-base: 6px;
+  --wj-border-radius-large: 8px;
+  --wj-border-radius-round: 50%;
+}
+
+/* ===== 阴影系统 ===== */
+:root {
+  --wj-box-shadow-light: 0 1px 4px rgb(0 0 0 / 5%);
+  --wj-box-shadow-base: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  --wj-box-shadow-dark: 0 4px 16px 0 rgb(0 0 0 / 15%);
+}
+
+/* ===== 动画系统 ===== */
+:root {
+  --wj-transition-duration-fast: 0.2s;
+  --wj-transition-duration-base: 0.3s;
+  --wj-transition-duration-slow: 0.5s;
+
+  --wj-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --wj-transition-all: all var(--wj-transition-duration-base)
+    var(--wj-transition-timing-function);
+}
+
+/* ===== 布局系统 ===== */
+:root {
+  --wj-header-height: 60px;
+  --wj-sidebar-width: 260px;
+  --wj-sidebar-width-collapsed: 64px;
+  --wj-content-padding: 20px;
+
+  --wj-z-index-dropdown: 1000;
+  --wj-z-index-sticky: 1020;
+  --wj-z-index-fixed: 1030;
+  --wj-z-index-modal-backdrop: 1040;
+  --wj-z-index-modal: 1050;
+  --wj-z-index-popover: 1060;
+  --wj-z-index-tooltip: 1070;
+}
+
+/* ===== 业务组件专用变量 ===== */
+:root {
+  /* 合同列表专用 */
+  --wj-contract-header-bg: #f5f7fa;
+  --wj-contract-stripe-bg: #fafafa;
+  --wj-contract-hover-bg: #f5f7fa;
+  --wj-contract-border-color: #ebeef5;
+
+  /* 搜索区域专用 */
+  --wj-search-bg: #ffffff;
+  --wj-search-border-radius: 8px;
+  --wj-search-padding: 20px 24px;
+  --wj-search-shadow: 0 1px 4px rgb(0 0 0 / 5%);
+
+  /* 表格专用 */
+  --wj-table-header-height: 48px;
+  --wj-table-row-height: 48px;
+  --wj-table-border-color: #ebeef5;
+  --wj-table-text-color: #606266;
+  --wj-table-header-color: #606266;
+
+  /* 按钮专用 */
+  --wj-button-height-small: 32px;
+  --wj-button-height-base: 36px;
+  --wj-button-height-large: 40px;
+  --wj-button-padding-horizontal: 16px;
+
+  /* 表单专用 */
+  --wj-form-label-width: 100px;
+  --wj-form-item-margin-bottom: 18px;
+  --wj-input-height: 36px;
+  --wj-input-border-radius: 6px;
+}
+
+/* ===== 响应式断点 ===== */
+@media (max-width: 768px) {
+  :root {
+    --wj-font-size-base: 16px; /* 移动端防缩放 */
+    --wj-spacing-md: 12px;
+    --wj-spacing-lg: 16px;
+    --wj-content-padding: 16px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  :root {
+    --wj-sidebar-width: 220px;
+  }
+}
+
+@media (min-width: 1441px) {
+  :root {
+    --wj-content-padding: 24px;
+  }
+}
+
+/* ===== 暗色主题 (预留) ===== */
+[data-theme="dark"] {
+  --wj-background-page: #141414;
+  --wj-background-white: #1f1f1f;
+  --wj-text-primary: #ffffff;
+  --wj-text-regular: #d9d9d9;
+  --wj-text-secondary: #8c8c8c;
+  --wj-border-base: #434343;
+  --wj-border-light: #303030;
+}

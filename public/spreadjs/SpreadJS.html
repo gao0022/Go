@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>SpreadJS示例</title>
+    <meta name="spreadjs culture" content="zh-cn" />
+    <link rel="icon" type="image/png" href="css/images/splogo.png"/>
+    <!--Font-Awesome-->
+    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
+
+    <!--SpreadJS Css-->
+    <link rel="stylesheet" href="css/gc.spread.sheets.excel2013white.11.0.0.css" title="spread-theme"/>
+
+    <link rel="stylesheet" href="css/sample.css"/>
+
+    <!--jQuery References-->
+    <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="scripts/gc.spread.sheets.all.11.0.0.min.js"></script>
+    <script type="text/javascript" src="scripts/gc.spread.sheets.charts.11.0.0.min.js"></script>
+    <script type="text/javascript" src="scripts/gc.spread.sheets.print.11.0.0.min.js"></script>
+    <script type="text/javascript" src="scripts/gc.spread.excelio.11.0.0.min.js"></script>
+    <script type="text/javascript" src="scripts/gc.spread.sheets.resources.zh.11.0.0.min.js"></script>
+    <script type="text/javascript" src="scripts/license.js"></script>
+    <script type="text/javascript" src="scripts/FileSaver.min.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #spreadContainer {
+            width: 100%;
+            height: calc(100% - 50px);
+        }
+        #colorDisplay {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body class="unselectable">
+    <div id="colorDisplay">当前单元格字体颜色: <span id="fontColor"></span></div>
+    <div id="spreadContainer"></div>
+
+    <script type="text/javascript">
+        var IsEdit = false;
+        window.onload = function () {
+            // 初始化SpreadJS
+            var spread = new GC.Spread.Sheets.Workbook(document.getElementById("spreadContainer"), {
+                sheetCount: 1
+            });
+            var sheet = spread.getActiveSheet();
+
+            // 使用ExcelIO加载服务器端的Excel文件
+           // 创建ExcelIO实例
+            var excelIO = new GC.Spread.Excel.IO();
+            
+            // 使用fetch获取test.xls文件
+            //1副本虹桥初始数据准备
+            fetch("\\docs\\2副本虹桥初始数据准备.xlsx")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('文件不存在或无法访问: ' + response.status);
+                    }
+                    return response.blob();
+                })
+                .then(blob => {
+                    // 使用blob文件加载Excel
+                    excelIO.open(blob, function(json) {
+                        // 成功加载，将数据导入到spread中
+                        spread.fromJSON(json);
+                        // 重新应用单元格编辑阻止
+                        setupCellEditBlocking(spread.getActiveSheet());
+                        console.log("成功加载xlsx文件");
+                    }, function(error) {
+                        // 加载失败
+                        console.error("加载Excel文件失败:", error);
+                    
+                    });
+                })
+                .catch(error => {
+                    console.error("获取文件失败:", error);
+                    
+                });
+                
+           
+
+            // 设置单元格编辑阻止功能
+            function setupCellEditBlocking(sheet) {
+                // 监听单元格编辑开始事件
+                sheet.bind(GC.Spread.Sheets.Events.EditStarting, function(e, info) {
+                    info.cancel = !IsEdit;
+
+                    // var cell = sheet.getCell(info.row, info.col);
+                    // console.log('单元格编辑开始 - 字体颜色:', cell);
+
+                });
+
+            // 监听选择变更事件，更新颜色显示
+            sheet.bind(GC.Spread.Sheets.Events.SelectionChanged, function(e, info) {
+
+                var row = info.newSelections[0].row;
+                var col = info.newSelections[0].col;
+                var style = sheet.getStyle(row, col);
+        
+                
+                // 显示单元格字体颜色
+                var fontColor = style && style.foreColor ? style.foreColor : "无";
+                //console.log('选择变更 - 字体颜色:',fontColor);
+
+                // 检查字体颜色是否为黑色或'Text1 0'
+                if (fontColor === 'rgb(0, 0, 0)' || fontColor === 'Text 1 0' || fontColor === 'Text1 0') {
+                    IsEdit = false;
+                }
+                else{
+                    IsEdit = true;
+                }
+                
+            });
+
+            // 监听复制事件 - 使用ClipboardChanging事件
+            spread.bind(GC.Spread.Sheets.Events.ClipboardChanging, function(sender, args) {
+                console.log('复制事件触发', args);
+                args.cancel = !IsEdit;
+            });
+
+            // 监听粘贴事件
+            sheet.bind(GC.Spread.Sheets.Events.ClipboardPasting, function(sender, args) {
+                console.log('粘贴事件触发', args);
+                args.cancel = !IsEdit;
+                /*
+                var cellRange = args.cellRange;
+                var shouldBlock = false;
+                
+                // 检查粘贴范围内的所有单元格
+                for (var row = cellRange.row; row <= cellRange.row + cellRange.rowCount - 1; row++) {
+                    for (var col = cellRange.col; col <= cellRange.col + cellRange.colCount - 1; col++) {
+                        var style = sheet.getStyle(row, col);
+                        var fontColor = style && style.foreColor ? style.foreColor : "无";
+                        console.log('粘贴检查 - 行:', row, '列:', col, '字体颜色:', fontColor);
+                        // 只对黑色字体单元格阻止粘贴
+                        if (fontColor === 'rgb(0, 0, 0)' || fontColor === 'Text 1 0' || fontColor === 'Text1 0') {
+                            shouldBlock = true;
+                            break;
+                        }
+                    }
+                    if (shouldBlock) break;
+                }
+                
+                if (shouldBlock) {
+                    args.cancel = true;
+                    
+                }
+                */
+            });
+        };
+    };
+     
+    </script>
+</body>
+</html>

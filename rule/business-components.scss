@@ -1,0 +1,568 @@
+/* 🎨 万家系统业务组件样式库 */
+
+/* ===== 合同管理相关样式 ===== */
+
+/* 合同列表页面 */
+.wj-contract-list {
+  min-height: 100vh;
+  padding: var(--wj-content-padding);
+  background-color: var(--wj-background-page);
+}
+
+.wj-contract-list__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--wj-spacing-lg);
+}
+
+.wj-contract-list__title {
+  margin: 0;
+  font-size: var(--wj-font-size-large);
+  font-weight: var(--wj-font-weight-bold);
+  color: var(--wj-text-primary);
+}
+
+.wj-contract-list__search {
+  padding: var(--wj-search-padding);
+  margin-bottom: var(--wj-spacing-md);
+  background: var(--wj-search-bg);
+  border-radius: var(--wj-search-border-radius);
+  box-shadow: var(--wj-search-shadow);
+}
+
+.wj-contract-list__search-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--wj-spacing-md);
+  align-items: center;
+}
+
+.wj-contract-list__search-item {
+  display: flex;
+  align-items: center;
+  gap: var(--wj-spacing-sm);
+}
+
+.wj-contract-list__search-item label {
+  white-space: nowrap;
+  font-size: var(--wj-font-size-base);
+  color: var(--wj-text-regular);
+  font-weight: var(--wj-font-weight-primary);
+  min-width: 80px;
+}
+
+.wj-contract-list__search-actions {
+  display: flex;
+  gap: var(--wj-spacing-sm);
+  margin-left: auto;
+}
+
+.wj-contract-list__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--wj-spacing-md);
+  margin-bottom: var(--wj-spacing-md);
+}
+
+.wj-contract-list__table {
+  padding: var(--wj-spacing-xl);
+  background: var(--wj-background-white);
+  border-radius: var(--wj-border-radius-large);
+  box-shadow: var(--wj-box-shadow-light);
+}
+
+/* 合同详情页面 */
+.wj-contract-detail {
+  padding: var(--wj-content-padding);
+  background-color: var(--wj-background-page);
+}
+
+.wj-contract-detail__card {
+  margin-bottom: var(--wj-spacing-lg);
+}
+
+.wj-contract-detail__section {
+  margin-bottom: var(--wj-spacing-xl);
+}
+
+.wj-contract-detail__section-title {
+  font-size: var(--wj-font-size-medium);
+  font-weight: var(--wj-font-weight-bold);
+  color: var(--wj-text-primary);
+  margin-bottom: var(--wj-spacing-md);
+  padding-bottom: var(--wj-spacing-sm);
+  border-bottom: 2px solid var(--wj-border-light);
+}
+
+.wj-contract-detail__info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--wj-spacing-lg);
+}
+
+.wj-contract-detail__info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--wj-spacing-sm);
+}
+
+.wj-contract-detail__info-label {
+  min-width: 100px;
+  font-weight: var(--wj-font-weight-primary);
+  color: var(--wj-text-regular);
+}
+
+.wj-contract-detail__info-value {
+  flex: 1;
+  color: var(--wj-text-primary);
+}
+
+/* ===== 表单相关样式 ===== */
+
+/* 通用表单样式 */
+.wj-form {
+  background: var(--wj-background-white);
+  border-radius: var(--wj-border-radius-large);
+  box-shadow: var(--wj-box-shadow-light);
+  padding: var(--wj-spacing-xl);
+}
+
+.wj-form__section {
+  margin-bottom: var(--wj-spacing-xl);
+}
+
+.wj-form__section-title {
+  font-size: var(--wj-font-size-medium);
+  font-weight: var(--wj-font-weight-bold);
+  color: var(--wj-text-primary);
+  margin-bottom: var(--wj-spacing-md);
+  padding-bottom: var(--wj-spacing-sm);
+  border-bottom: 2px solid var(--wj-border-light);
+}
+
+.wj-form__actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--wj-spacing-md);
+  margin-top: var(--wj-spacing-xl);
+  padding-top: var(--wj-spacing-lg);
+  border-top: 1px solid var(--wj-border-light);
+}
+
+/* 表单布局 */
+.wj-form__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--wj-spacing-lg);
+}
+
+.wj-form__item {
+  margin-bottom: var(--wj-spacing-lg);
+}
+
+.wj-form__item--full {
+  grid-column: 1 / -1;
+}
+
+/* 表单标签样式 */
+.wj-form__label {
+  display: block;
+  margin-bottom: var(--wj-spacing-xs);
+  font-weight: var(--wj-font-weight-primary);
+  color: var(--wj-text-regular);
+}
+
+.wj-form__label--required::before {
+  content: "*";
+  color: var(--wj-danger-color);
+  margin-right: 4px;
+}
+
+/* ===== 数据展示相关样式 ===== */
+
+/* 状态标签 */
+.wj-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: var(--wj-border-radius-small);
+  font-size: var(--wj-font-size-mini);
+  font-weight: var(--wj-font-weight-primary);
+  line-height: 1;
+}
+
+.wj-status--success {
+  background-color: var(--wj-success-light);
+  color: var(--wj-success-color);
+  border: 1px solid var(--wj-success-color);
+}
+
+.wj-status--warning {
+  background-color: var(--wj-warning-light);
+  color: var(--wj-warning-color);
+  border: 1px solid var(--wj-warning-color);
+}
+
+.wj-status--danger {
+  background-color: var(--wj-danger-light);
+  color: var(--wj-danger-color);
+  border: 1px solid var(--wj-danger-color);
+}
+
+.wj-status--info {
+  background-color: var(--wj-info-light);
+  color: var(--wj-info-color);
+  border: 1px solid var(--wj-info-color);
+}
+
+.wj-status--primary {
+  background-color: var(--wj-primary-light);
+  color: var(--wj-primary-color);
+  border: 1px solid var(--wj-primary-color);
+}
+
+/* 金额显示 */
+.wj-amount {
+  font-weight: var(--wj-font-weight-bold);
+  color: var(--wj-text-primary);
+}
+
+.wj-amount--positive {
+  color: var(--wj-success-color);
+}
+
+.wj-amount--negative {
+  color: var(--wj-danger-color);
+}
+
+/* 编号链接 */
+.wj-code-link {
+  color: var(--wj-primary-color);
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--wj-primary-hover);
+    text-decoration: underline;
+  }
+}
+
+/* ===== 工具类样式 ===== */
+
+/* 文字工具类 */
+.wj-text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wj-text-break {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.wj-text-center {
+  text-align: center !important;
+}
+.wj-text-left {
+  text-align: left !important;
+}
+.wj-text-right {
+  text-align: right !important;
+}
+
+/* 布局工具类 */
+.wj-flex {
+  display: flex !important;
+}
+.wj-flex-1 {
+  flex: 1 1 0% !important;
+}
+.wj-flex-auto {
+  flex: 1 1 auto !important;
+}
+.wj-flex-none {
+  flex: none !important;
+}
+
+.wj-flex-col {
+  flex-direction: column !important;
+}
+.wj-flex-row {
+  flex-direction: row !important;
+}
+
+.wj-items-center {
+  align-items: center !important;
+}
+.wj-items-start {
+  align-items: flex-start !important;
+}
+.wj-items-end {
+  align-items: flex-end !important;
+}
+.wj-items-stretch {
+  align-items: stretch !important;
+}
+
+.wj-justify-center {
+  justify-content: center !important;
+}
+.wj-justify-start {
+  justify-content: flex-start !important;
+}
+.wj-justify-end {
+  justify-content: flex-end !important;
+}
+.wj-justify-between {
+  justify-content: space-between !important;
+}
+.wj-justify-around {
+  justify-content: space-around !important;
+}
+
+.wj-gap-xs {
+  gap: var(--wj-spacing-xs) !important;
+}
+.wj-gap-sm {
+  gap: var(--wj-spacing-sm) !important;
+}
+.wj-gap-md {
+  gap: var(--wj-spacing-md) !important;
+}
+.wj-gap-lg {
+  gap: var(--wj-spacing-lg) !important;
+}
+.wj-gap-xl {
+  gap: var(--wj-spacing-xl) !important;
+}
+
+/* 网格工具类 */
+.wj-grid {
+  display: grid !important;
+}
+.wj-grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+}
+.wj-grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+.wj-grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+.wj-grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+/* 显示工具类 */
+.wj-block {
+  display: block !important;
+}
+.wj-inline {
+  display: inline !important;
+}
+.wj-inline-block {
+  display: inline-block !important;
+}
+.wj-hidden {
+  display: none !important;
+}
+
+.wj-visible {
+  visibility: visible !important;
+}
+.wj-invisible {
+  visibility: hidden !important;
+}
+
+/* 定位工具类 */
+.wj-relative {
+  position: relative !important;
+}
+.wj-absolute {
+  position: absolute !important;
+}
+.wj-fixed {
+  position: fixed !important;
+}
+.wj-sticky {
+  position: sticky !important;
+}
+
+/* 尺寸工具类 */
+.wj-w-full {
+  width: 100% !important;
+}
+.wj-w-auto {
+  width: auto !important;
+}
+.wj-h-full {
+  height: 100% !important;
+}
+.wj-h-auto {
+  height: auto !important;
+}
+
+.wj-min-w-0 {
+  min-width: 0 !important;
+}
+.wj-min-h-0 {
+  min-height: 0 !important;
+}
+.wj-max-w-full {
+  max-width: 100% !important;
+}
+.wj-max-h-full {
+  max-height: 100% !important;
+}
+
+/* ===== 响应式工具类 ===== */
+
+/* 移动端隐藏 */
+@media (max-width: 768px) {
+  .wj-mobile-hidden {
+    display: none !important;
+  }
+  .wj-mobile-full {
+    width: 100% !important;
+  }
+  .wj-mobile-text-center {
+    text-align: center !important;
+  }
+}
+
+/* 桌面端隐藏 */
+@media (min-width: 769px) {
+  .wj-desktop-hidden {
+    display: none !important;
+  }
+}
+
+/* 平板端隐藏 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .wj-tablet-hidden {
+    display: none !important;
+  }
+}
+
+/* ===== 动画效果 ===== */
+
+/* 淡入淡出 */
+@keyframes wj-fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wj-fade-out-down {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.wj-animate-fade-in-up {
+  animation: wj-fade-in-up 0.3s ease-out;
+}
+
+.wj-animate-fade-out-down {
+  animation: wj-fade-out-down 0.3s ease-out;
+}
+
+/* 缩放效果 */
+@keyframes wj-scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.wj-animate-scale-in {
+  animation: wj-scale-in 0.2s ease-out;
+}
+
+/* 滑动效果 */
+@keyframes wj-slide-in-right {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.wj-animate-slide-in-right {
+  animation: wj-slide-in-right 0.3s ease-out;
+}
+
+/* ===== 打印样式 ===== */
+@media print {
+  .wj-no-print {
+    display: none !important;
+  }
+
+  .wj-print-only {
+    display: block !important;
+  }
+
+  .wj-contract-list__search,
+  .wj-contract-list__toolbar {
+    display: none !important;
+  }
+
+  .wj-contract-list__table {
+    box-shadow: none !important;
+    border: 1px solid var(--wj-border-base) !important;
+  }
+}
+
+/* ===== 无障碍支持 ===== */
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+  .wj-high-contrast {
+    border: 2px solid currentColor !important;
+  }
+}
+
+/* 减少动画 */
+@media (prefers-reduced-motion: reduce) {
+  .wj-reduced-motion {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 焦点样式 */
+.wj-focus-visible:focus-visible {
+  outline: 2px solid var(--wj-primary-color);
+  outline-offset: 2px;
+}
+
+/* 屏幕阅读器 */
+.wj-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

@@ -1,0 +1,341 @@
+/* ===== 图表样式定制 - 遵循万家系统 UI 设计规范 ===== */
+
+/* 图表容器 */
+.wj-chart-container {
+  width: 100%;
+  height: 400px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.wj-chart-container-sm {
+  height: 300px;
+}
+
+.wj-chart-container-lg {
+  height: 500px;
+}
+
+/* 图表配色 - 遵循 Element Plus 规范 */
+.wj-chart-color-1 {
+  color: #409eff;
+}
+
+.wj-chart-color-2 {
+  color: #67c23a;
+}
+
+.wj-chart-color-3 {
+  color: #e6a23c;
+}
+
+.wj-chart-color-4 {
+  color: #f56c6c;
+}
+
+.wj-chart-color-5 {
+  color: #909399;
+}
+
+/* 柱状图样式 */
+.wj-bar-chart {
+  .el-bar {
+    background: linear-gradient(180deg, #409eff 0%, #66b1ff 100%);
+    border-radius: 4px 4px 0 0;
+  }
+
+  .el-bar:hover {
+    opacity: 0.85;
+  }
+}
+
+/* 折线图样式 */
+.wj-line-chart {
+  .el-line {
+    stroke: #409eff;
+    stroke-width: 2;
+  }
+
+  .el-line-point {
+    fill: #409eff;
+    stroke: #fff;
+    stroke-width: 2;
+  }
+
+  .el-area {
+    fill: url(#lineGradient);
+  }
+}
+
+/* 饼图样式 */
+.wj-pie-chart {
+  .el-pie-slice {
+    stroke: #fff;
+    stroke-width: 2;
+    border-radius: 8px;
+  }
+
+  .el-pie-slice:hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+    transition: transform 0.3s;
+  }
+}
+
+/* 环形图样式 */
+.wj-donut-chart {
+  .el-donut-inner {
+    fill: #fff;
+  }
+
+  .el-donut-label {
+    font-size: 18px;
+    font-weight: bold;
+    fill: #303133;
+  }
+}
+
+/* 图表标题 */
+.wj-chart-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #303133;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  border-left: 4px solid #409eff;
+}
+
+/* 图表图例 */
+.wj-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #606266;
+
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+    }
+  }
+}
+
+/* 图表工具栏 */
+.wj-chart-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 12px;
+
+  .toolbar-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+    color: #606266;
+    background: #f5f7fa;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      color: #409eff;
+      background: #ecf5ff;
+    }
+
+    &.active {
+      color: #409eff;
+      background: #ecf5ff;
+    }
+  }
+}
+
+/* 图表加载状态 */
+.wj-chart-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #909399;
+
+  .loading-text {
+    margin-left: 8px;
+  }
+}
+
+/* 图表无数据状态 */
+.wj-chart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #909399;
+
+  .empty-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+
+  .empty-text {
+    font-size: 14px;
+  }
+}
+
+/* 响应式图表 */
+@media (max-width: 768px) {
+  .wj-chart-container {
+    height: 300px;
+    padding: 12px;
+  }
+
+  .wj-chart-title {
+    font-size: 14px;
+  }
+
+  .wj-chart-legend {
+    gap: 12px;
+
+    .legend-item {
+      font-size: 12px;
+    }
+  }
+}
+
+/* 仪表盘样式 */
+.wj-gauge-chart {
+  .gauge-value {
+    font-size: 32px;
+    font-weight: bold;
+    fill: #303133;
+  }
+
+  .gauge-label {
+    font-size: 14px;
+    fill: #606266;
+  }
+}
+
+/* 漏斗图样式 */
+.wj-funnel-chart {
+  .funnel-item {
+    stroke: #fff;
+    stroke-width: 2;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+/* 雷达图样式 */
+.wj-radar-chart {
+  .radar-indicator {
+    fill: #606266;
+  }
+
+  .radar-polygon {
+    fill: rgba(64, 158, 255, 0.2);
+    stroke: #409eff;
+    stroke-width: 2;
+  }
+}
+
+/* 热力图样式 */
+.wj-heatmap-chart {
+  .heatmap-cell {
+    stroke: #fff;
+    stroke-width: 1;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+/* 树图样式 */
+.wj-treemap-chart {
+  .treemap-item {
+    stroke: #fff;
+    stroke-width: 2;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+/* 关系图样式 */
+.wj-graph-chart {
+  .graph-node {
+    fill: #409eff;
+    stroke: #fff;
+    stroke-width: 2;
+    cursor: pointer;
+
+    &:hover {
+      fill: #66b1ff;
+    }
+  }
+
+  .graph-edge {
+    stroke: #c0c4cc;
+    stroke-width: 1;
+  }
+}
+
+/* 桑基图样式 */
+.wj-sankey-chart {
+  .sankey-node {
+    fill: #409eff;
+    stroke: #fff;
+    stroke-width: 2;
+  }
+
+  .sankey-link {
+    fill: none;
+    stroke-opacity: 0.3;
+
+    &:hover {
+      stroke-opacity: 0.5;
+    }
+  }
+}
+
+/* 词云图样式 */
+.wj-wordcloud-chart {
+  .wordcloud-item {
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+/* 组合图表 */
+.wj-combo-chart {
+  .combo-bar {
+    fill: #409eff;
+  }
+
+  .combo-line {
+    stroke: #67c23a;
+    stroke-width: 2;
+  }
+
+  .combo-point {
+    fill: #67c23a;
+    stroke: #fff;
+    stroke-width: 2;
+  }
+}
